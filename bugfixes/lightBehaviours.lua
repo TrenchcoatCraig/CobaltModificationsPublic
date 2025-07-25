@@ -7,7 +7,7 @@
 
 -- Place following code under default = "9050", in LIGHT_BEHAVIOURS.pattern
 -- Adds warning that non-integers will be stripped from the string
-			info = "0 = off, 9 = max; non-integers will be removed!",
+			info = "0 = off, 9 = max brightness; non-integers will be removed!",
 
 -- Place following code in onClassify under if values.pattern then
 			if string.find(values.pattern, "[^%d]+") then
@@ -18,3 +18,6 @@
 				print("No non-integer values, sorry! Pattern has been set to " .. values.pattern .. ".")
 				-- Let the user know what was changed and why
 			end
+
+
+-- If you want to be fancy, you could probably edit editDialogs.lua to play a bit more nicely with this light behavior, since that's where the code that makes labels red lives. However, currently, it seems to me that'd require more work on both that and this end when this solution seems to work ok. Ideally, the pattern label would turn red and not permit you to save it until you fixed it, and I'm not quite sure how to do that at the moment, sorry.
